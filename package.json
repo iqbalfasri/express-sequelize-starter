@@ -1,0 +1,26 @@
+{
+  "name": "express-sequelize-starter",
+  "version": "1.0.0",
+  "description": "Mempermudah project NodeJS dengan ORM kamu.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "Muhammad Iqbal Fasri",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.19.0",
+    "sequelize-cli": "^5.4.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.0.0",
+    "express": "^4.16.4",
+    "mysql2": "^1.6.5",
+    "sequelize": "^5.8.5"
+  }
+}
