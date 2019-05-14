@@ -1,6 +1,9 @@
-const Router = require('express').Router();
+const Router = require('express').Router()
 
-Router.route('/')
-  .get()
-Router.route('/:id')
-  .get()
+// user controller
+const { all, getById } = require('../controllers/user.controller')
+
+Router.route('/').get(all).post()
+Router.route('/:id').get(getById)
+
+module.exports = Router
