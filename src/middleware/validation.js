@@ -10,8 +10,9 @@ exports.validation = schema => {
     const { error, value } = Joi.validate(data, schema);
     if (error) {
       res.status(422).json({
-        message: "Invalid request data"
-      })
+        message: error.message,
+        status: "Invalid request data"
+      });
     } else {
       next();
       // Log the value validation
@@ -23,6 +24,6 @@ exports.validation = schema => {
 exports.schemaDataValidations = {
   users: Joi.object().keys({
     username: Joi.string().required(),
-    email: Joi.string().required()
+    email: Joi.string().email().required()
   })
 }
