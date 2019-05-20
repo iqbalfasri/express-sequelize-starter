@@ -3,6 +3,7 @@ const UserModel = require("../../models").users;
 class UserController {
   static async getAllUser(req, res) {
     try {
+      // Get and count all data
       const userData = await UserModel.findAndCountAll();
 
       res.json({
@@ -11,7 +12,7 @@ class UserController {
       });
     } catch (error) {
       res.status(500).json({
-        message: JSON.stringify(error)
+        message: "internal server error"
       });
     }
   }
@@ -28,7 +29,7 @@ class UserController {
       });
     } catch (error) {
       res.status(500).json({
-        message: JSON.stringify(error)
+        message: "internal server error"
       });
     }
   }
@@ -37,7 +38,7 @@ class UserController {
     try {
       let { username, email } = req.body;
 
-      let buildData = await UserModel.build({ username, email });
+      const buildData = await UserModel.build({ username, email });
       const saveData = await buildData.save();
 
       res.status(201).json({
@@ -46,7 +47,7 @@ class UserController {
       });
     } catch (error) {
       res.status(500).json({
-        message: error
+        message: "internal server error",
       });
     }
   }
@@ -54,15 +55,17 @@ class UserController {
   static async update(req, res) {
     try {
       let { id } = req.params;
+      let { username, email } = req.body;
 
-      // const updateUser = await UserModel.update(
-      //   { username: req.body.username, email: req.body.email },
-      //   { where: { id: id } }
-      // );
+      await UserModel.update({ username, email }, { where: { id }});
 
-      return updateUser;
+      res.json({
+        message: "success"
+      });
     } catch (error) {
-      return error;
+      res.status(500).json({
+        message: "internal server error"
+      })
     }
   }
 
@@ -73,11 +76,12 @@ class UserController {
       await UserModel.destroy({ where: { id } });
 
       res.json({
-        message: "delete success"
-      })
-
+        message: "success"
+      });
     } catch (error) {
-      return error;
+      res.status(500).json({
+        message: "internal server error"
+      })
     }
   }
 }
