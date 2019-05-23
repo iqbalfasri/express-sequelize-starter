@@ -1,7 +1,7 @@
 {
   "name": "express-sequelize-starter",
   "version": "1.0.0",
-  "description": "Mempermudah project NodeJS dengan ORM kamu.",
+  "description": "Simplify Node JS projects with ORM Sequelize and validation with JOI.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
