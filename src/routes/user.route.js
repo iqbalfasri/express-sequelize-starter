@@ -9,6 +9,7 @@ const {
   validation
 } = require("../middleware/validation");
 
+// main route
 Router.route("/")
   .get(User.getAllUser)
   .post(validation(schemaDataValidations.users), User.store);

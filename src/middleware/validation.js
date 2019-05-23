@@ -15,8 +15,6 @@ exports.validation = schema => {
       });
     } else {
       next();
-      // Log the value validation
-      console.log(value, "Value validation")
     }
   }
 }
