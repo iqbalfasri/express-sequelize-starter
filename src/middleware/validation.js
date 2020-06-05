@@ -1,7 +1,7 @@
 /**
  * Validation data
  */
-const Joi = require('joi')
+const Joi = require('@hapi/joi')
 
 exports.validation = schema => {
   return (req, res, next) => {
