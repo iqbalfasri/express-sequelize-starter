@@ -8,6 +8,7 @@ module.exports = {
         {
           username: 'iqbalfasri',
           email: 'iqbalx64@gmail.com',
+          password: 'password_no_hash',
           createdAt: new Date(),
           updatedAt: new Date()
         }

@@ -18,4 +18,8 @@ Router.route("/:id")
   .put(User.update)
   .delete(User.delete);
 
+// auth route
+Router.route('/auth')
+  .post(User.auth)
+
 module.exports = Router;
